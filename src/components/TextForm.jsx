@@ -24,6 +24,11 @@ let [text,setText] = useState("");
     setText(newtext);
     }
 
+//-------this is for copy text to clipboard--------
+
+    let copy=()=>{
+    navigator.clipboard.writeText(text);
+    }
 
 // -------this is for clearing textbox--------
 
@@ -84,10 +89,11 @@ return (
         <button className="btn btn-outline-primary mx-2"  onClick={upper} >Click to Uppercase</button>
         <button className="btn btn-outline-primary mx-2"  onClick={lower}>Click to lowercase</button>
         <button className="btn btn-outline-primary mx-2"  onClick={clear}>Click to Clear</button>
+        <button className="btn btn-outline-primary mx-2"  onClick={copy}>Copy Text</button>
  
         <h2>Total Text Summary</h2>
-        <p>Words {text.split(" ").length} and Characters {text.length}</p>
-        <p>It will take {0.008*text.split(" ").length} minute to read this passage</p>
+        <p>Words {text.split(/\s+/).length} and Characters {text.length}</p>
+        <p>It will take {0.008*text.split(/\s+/).length} minute to read this passage</p>
         <h3>Review</h3>
         <p>{text}</p>
        
